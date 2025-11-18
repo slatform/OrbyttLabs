@@ -1,0 +1,1129 @@
+/* ===================================
+   CSS RESET & BASE STYLES
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ===================================
+   LAYOUT CONTAINERS
+   =================================== */
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e5e5;
+    z-index: 1000;
+    padding: 20px 0;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+.nav {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    color: #666;
+    transition: color 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #1a1a1a;
+}
+
+.nav-link.active {
+    color: #1a1a1a;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #0066cc;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #1a1a1a;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #1a1a1a;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+.menu-toggle.active .hamburger {
+    background-color: transparent;
+}
+
+.menu-toggle.active .hamburger::before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .hamburger::after {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+
+.hero {
+    padding: 120px 0 100px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0052a3;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+}
+
+.btn-secondary:hover {
+    background-color: #e5e5e5;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.link-secondary {
+    font-size: 1rem;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.link-secondary:hover {
+    color: #0066cc;
+}
+
+/* ===================================
+   SECTION TITLES
+   =================================== */
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.section-intro {
+    font-size: 1.125rem;
+    color: #666;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.page-hero {
+    padding: 100px 0 60px;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.page-intro {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #666;
+    max-width: 800px;
+}
+
+/* ===================================
+   OVERVIEW SECTION - PILLARS
+   =================================== */
+
+.section-overview {
+    background-color: #fafafa;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.pillar-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.pillar-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.pillar-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* ===================================
+   APPROACH SECTION
+   =================================== */
+
+.section-approach {
+    background-color: #ffffff;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-top: 60px;
+}
+
+.approach-step {
+    text-align: left;
+}
+
+.step-number {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #0066cc;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.step-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.step-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* ===================================
+   FOCUS AREAS SECTION
+   =================================== */
+
+.section-focus {
+    background-color: #fafafa;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.focus-item {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.focus-item h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.focus-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+
+.section-cta {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.cta-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+/* ===================================
+   THESIS PAGE - PRINCIPLES
+   =================================== */
+
+.section-principles {
+    background-color: #fafafa;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.principle-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.principle-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.principle-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* ===================================
+   THESIS PAGE - STAGE
+   =================================== */
+
+.section-stage {
+    background-color: #ffffff;
+}
+
+.stage-content {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.stage-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+/* ===================================
+   THESIS PAGE - CRITERIA
+   =================================== */
+
+.section-criteria {
+    background-color: #fafafa;
+}
+
+.criteria-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 48px;
+}
+
+.criteria-category {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.criteria-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.criteria-list {
+    list-style: none;
+    padding: 0;
+}
+
+.criteria-list li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.criteria-list li::before {
+    content: '•';
+    position: absolute;
+    left: 12px;
+    color: #0066cc;
+    font-weight: bold;
+}
+
+/* ===================================
+   THESIS PAGE - CTA
+   =================================== */
+
+.section-thesis-cta {
+    background-color: #ffffff;
+}
+
+.thesis-cta-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-top: 40px;
+}
+
+.thesis-cta-column {
+    text-align: center;
+    padding: 48px 32px;
+    background-color: #fafafa;
+    border-radius: 8px;
+}
+
+.thesis-cta-column h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.thesis-cta-column p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 32px;
+}
+
+/* ===================================
+   PORTFOLIO PAGE - GRID
+   =================================== */
+
+.section-portfolio {
+    background-color: #fafafa;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.portfolio-card {
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.portfolio-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.portfolio-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #f0f0f0;
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.portfolio-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* ===================================
+   PORTFOLIO PAGE - THEMES
+   =================================== */
+
+.section-themes {
+    background-color: #ffffff;
+}
+
+.themes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.theme-item {
+    padding: 32px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.theme-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.theme-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* ===================================
+   PORTFOLIO PAGE - CTA
+   =================================== */
+
+.section-portfolio-cta {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===================================
+   CONTACT PAGE
+   =================================== */
+
+.section-contact {
+    background-color: #fafafa;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.contact-info {
+    background-color: #ffffff;
+    padding: 48px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.contact-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.contact-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.contact-email {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0066cc;
+    margin-bottom: 48px;
+    transition: opacity 0.2s ease;
+}
+
+.contact-email:hover {
+    opacity: 0.7;
+}
+
+.contact-guidelines {
+    margin-top: 40px;
+}
+
+.guidelines-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.guidelines-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.guidelines-list li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #666;
+    padding-left: 28px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.guidelines-list li::before {
+    content: '→';
+    position: absolute;
+    left: 8px;
+    color: #0066cc;
+}
+
+.guidelines-note {
+    font-size: 0.9rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Contact Form */
+.contact-form-wrapper {
+    background-color: #ffffff;
+    padding: 48px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+.form-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.form-input,
+.form-textarea {
+    padding: 14px 16px;
+    font-size: 1rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-note {
+    font-size: 0.85rem;
+    color: #999;
+    text-align: center;
+    margin-top: -8px;
+}
+
+/* ===================================
+   DISCLAIMER SECTION
+   =================================== */
+
+.section-disclaimer {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.disclaimer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.disclaimer-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.disclaimer-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 60px 0 40px;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.footer-disclaimer {
+    font-size: 0.85rem;
+    color: #999;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   RESPONSIVE - TABLET & DESKTOP
+   =================================== */
+
+@media (min-width: 768px) {
+    /* Typography adjustments */
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    /* Section spacing */
+    .section {
+        padding: 100px 0;
+    }
+
+    .page-hero {
+        padding: 120px 0 80px;
+    }
+
+    /* Pillars grid */
+    .pillars-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    /* Approach grid */
+    .approach-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    /* Focus grid */
+    .focus-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    /* Principles grid */
+    .principles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    /* Criteria grid */
+    .criteria-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    /* Thesis CTA */
+    .thesis-cta-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    /* Portfolio grid */
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    /* Themes grid */
+    .themes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    /* Contact content */
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+    }
+
+    /* Hero CTA */
+    .hero-cta {
+        flex-direction: row;
+    }
+
+    /* CTA buttons */
+    .cta-buttons {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 32px;
+    }
+
+    /* Portfolio 3 columns on larger screens */
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Themes 3 columns */
+    .themes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Focus 3 columns */
+    .focus-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ===================================
+   RESPONSIVE - MOBILE
+   =================================== */
+
+@media (max-width: 767px) {
+    /* Show mobile menu toggle */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide navigation by default on mobile */
+    .nav {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        border-bottom: 1px solid #e5e5e5;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav.active {
+        max-height: 300px;
+    }
+
+    .nav-link {
+        padding: 20px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        display: block;
+    }
+
+    .nav-link.active::after {
+        display: none;
+    }
+
+    /* Typography adjustments */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .page-title {
+        font-size: 2.25rem;
+    }
+
+    .cta-title {
+        font-size: 1.75rem;
+    }
+
+    /* Hero CTA */
+    .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Spacing adjustments */
+    .section {
+        padding: 60px 0;
+    }
+
+    .hero {
+        padding: 80px 0 60px;
+    }
+
+    .page-hero {
+        padding: 80px 0 40px;
+    }
+
+    /* Card padding adjustments */
+    .pillar-card,
+    .principle-card,
+    .criteria-category,
+    .contact-info,
+    .contact-form-wrapper {
+        padding: 32px 24px;
+    }
+
+    .portfolio-card,
+    .theme-item,
+    .focus-item {
+        padding: 24px;
+    }
+
+    /* Portfolio header */
+    .portfolio-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Contact */
+    .contact-email {
+        font-size: 1.25rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 0 30px;
+    }
+}
