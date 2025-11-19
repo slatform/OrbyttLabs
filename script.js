@@ -143,6 +143,54 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===================================
+// SCROLL ANIMATIONS
+// ===================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Create and add scroll progress indicator
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    // Update progress bar on scroll
+    function updateProgressBar() {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = scrolled + '%';
+    }
+    
+    window.addEventListener('scroll', updateProgressBar);
+    updateProgressBar(); // Initial call
+
+    // Intersection Observer for section animations
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections for fade-in animation
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Observe grid items for stagger animation
+    const gridItems = document.querySelectorAll('.focus-home-item, .edge-item, .criteria-simple-item');
+    gridItems.forEach(item => {
+        item.classList.add('animate-on-scroll');
+        observer.observe(item);
+    });
+});
+
+// ===================================
 // FADE-IN ANIMATION ON SCROLL (OPTIONAL)
 // ===================================
 
@@ -180,3 +228,5 @@ document.addEventListener('DOMContentLoaded', function() {
 //     transform: translateY(0) !important;
 // }
 */
+
+// ===================================

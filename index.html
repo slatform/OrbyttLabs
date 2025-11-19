@@ -31,122 +31,160 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
+                    <!-- Animated SVG Visualization -->
+                    <div class="hero-visual">
+                        <svg viewBox="0 0 600 600" class="orbit-animation">
+                            <!-- Define gradient for rings -->
+                            <defs>
+                                <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#0066cc;stop-opacity:0.8" />
+                                    <stop offset="100%" style="stop-color:#00a8cc;stop-opacity:0.4" />
+                                </linearGradient>
+                                
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Outer rings -->
+                            <circle cx="300" cy="300" r="280" fill="none" stroke="#e5e5e5" stroke-width="0.5" opacity="0.2"/>
+                            <circle cx="300" cy="300" r="260" fill="none" stroke="#e5e5e5" stroke-width="0.5" opacity="0.25"/>
+                            
+                            <!-- Main outer ring -->
+                            <circle cx="300" cy="300" r="240" fill="none" stroke="#d0d0d0" stroke-width="1" opacity="0.4" class="rotate-slower"/>
+                            
+                            <!-- Mid-outer ring -->
+                            <circle cx="300" cy="300" r="210" fill="none" stroke="#1a1a1a" stroke-width="1.5" opacity="0.3" class="rotate-slow"/>
+                            
+                            <!-- Accent ring with gradient -->
+                            <circle cx="300" cy="300" r="180" fill="none" stroke="url(#blueGradient)" stroke-width="2" opacity="0.7" class="rotate-medium"/>
+                            
+                            <!-- Inner ring -->
+                            <circle cx="300" cy="300" r="150" fill="none" stroke="#1a1a1a" stroke-width="2" class="rotate-reverse"/>
+                            
+                            <!-- Thin accent ring -->
+                            <circle cx="300" cy="300" r="120" fill="none" stroke="#0066cc" stroke-width="1" opacity="0.5" class="rotate-fast"/>
+                            
+                            <!-- Center circles -->
+                            <circle cx="300" cy="300" r="90" fill="none" stroke="#1a1a1a" stroke-width="1.5" opacity="0.5"/>
+                            <circle cx="300" cy="300" r="70" fill="none" stroke="#666" stroke-width="1" opacity="0.3"/>
+                            
+                            <!-- Small center dot -->
+                            <circle cx="300" cy="300" r="8" fill="#0066cc" opacity="0.8" filter="url(#glow)"/>
+                            
+                            <!-- Orbital dots with glow -->
+                            <circle cx="300" cy="20" r="7" fill="#0066cc" opacity="0.9" filter="url(#glow)" class="orbit-dot-1">
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 300 300"
+                                    to="360 300 300"
+                                    dur="20s"
+                                    repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <circle cx="520" cy="300" r="6" fill="#1a1a1a" opacity="0.8" filter="url(#glow)" class="orbit-dot-2">
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 300 300"
+                                    to="360 300 300"
+                                    dur="30s"
+                                    repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <circle cx="300" cy="480" r="5" fill="#00a8cc" opacity="0.7" filter="url(#glow)" class="orbit-dot-3">
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 300 300"
+                                    to="360 300 300"
+                                    dur="25s"
+                                    repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- Additional small orbital dots for depth -->
+                            <circle cx="380" cy="150" r="3" fill="#666" opacity="0.6" class="orbit-dot-4">
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 300 300"
+                                    to="360 300 300"
+                                    dur="35s"
+                                    repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <circle cx="150" cy="380" r="3" fill="#0066cc" opacity="0.5" class="orbit-dot-5">
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 300 300"
+                                    to="360 300 300"
+                                    dur="40s"
+                                    repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </div>
+                    
                     <h1 class="hero-title">Orbytt Labs</h1>
-                    <p class="hero-subtitle">
-                        We are a next-generation private investment firm focused on identifying high-conviction opportunities before they become obvious to the market.
+                    
+                    <p class="hero-statement">
+                        We invest in frontier founders and overlooked opportunities before institutional capital arrives.
                     </p>
-                    <p class="hero-description">
-                        We specialize in the earliest, most overlooked stages—the places where asymmetric upside is born. Through deep research and conviction-driven decision making, we partner with founders building the future.
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Do -->
+        <section class="section section-what">
+            <div class="container">
+                <div class="what-content">
+                    <h2 class="section-label">What We Do</h2>
+                    <p class="section-statement">
+                        We combine the discipline of private equity, the speed of venture capital, and the intuition of talent scouting. We operate where traditional firms can't—scouting in overlooked communities, emerging ecosystems, and cultural pockets where breakthrough founders are building quietly.
                     </p>
-                    <div class="hero-cta">
-                        <a href="thesis.html" class="btn btn-primary">View Our Thesis</a>
-                        <a href="contact.html" class="link-secondary">Contact Us →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Focus Areas -->
+        <section class="section section-focus-home">
+            <div class="container">
+                <h2 class="section-label">Focus</h2>
+                <div class="focus-home-grid">
+                    <div class="focus-home-item">
+                        <h3>Consumer & FinTech</h3>
+                        <p>Mobile-first products, payment infrastructure, and financial primitives reshaping how people transact.</p>
+                    </div>
+                    <div class="focus-home-item">
+                        <h3>Crypto Infrastructure</h3>
+                        <p>Protocols, digital assets, and decentralized systems building the foundation of the internet-native economy.</p>
+                    </div>
+                    <div class="focus-home-item">
+                        <h3>AI & Creator Economy</h3>
+                        <p>AI-enabled products and platforms empowering creators to build, monetize, and own their distribution.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- What We Do / Overview -->
-        <section class="section section-overview">
+        <!-- Approach -->
+        <section class="section section-approach-home">
             <div class="container">
-                <div class="pillars-grid">
-                    <div class="pillar-card">
-                        <h3 class="pillar-title">Early-Stage Focus</h3>
-                        <p class="pillar-description">
-                            We invest at the earliest stages, often before consensus forms. This is where information asymmetry is highest and where patient capital can generate outsized returns. We're comfortable with uncertainty when conviction is strong.
-                        </p>
-                    </div>
-                    <div class="pillar-card">
-                        <h3 class="pillar-title">High-Conviction Bets</h3>
-                        <p class="pillar-description">
-                            We don't spray and pray. Each investment represents a deeply researched, high-conviction thesis about the future. We commit meaningfully to opportunities we believe in, and we're prepared to be early.
-                        </p>
-                    </div>
-                    <div class="pillar-card">
-                        <h3 class="pillar-title">Asymmetric Payoffs</h3>
-                        <p class="pillar-description">
-                            We seek opportunities with limited downside and exponential upside. Our goal is to find the non-obvious bets that can compound into category-defining outcomes over time.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How We Invest / Approach -->
-        <section class="section section-approach">
-            <div class="container">
-                <h2 class="section-title">A research-driven approach to asymmetric upside</h2>
-                <div class="approach-grid">
-                    <div class="approach-step">
-                        <div class="step-number">01</div>
-                        <h3 class="step-title">Discover</h3>
-                        <p class="step-description">
-                            Deep pipeline sourcing and network-driven discovery. We maintain relationships across ecosystems to surface opportunities before they're widely known.
-                        </p>
-                    </div>
-                    <div class="approach-step">
-                        <div class="step-number">02</div>
-                        <h3 class="step-title">Convict</h3>
-                        <p class="step-description">
-                            Develop high-conviction perspectives before they're consensus. We do the work to understand what others miss, building proprietary views on emerging opportunities.
-                        </p>
-                    </div>
-                    <div class="approach-step">
-                        <div class="step-number">03</div>
-                        <h3 class="step-title">Support</h3>
-                        <p class="step-description">
-                            Long-term, partnership-style involvement. We're aligned for the journey, providing strategic support and patient capital as companies scale.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sample Focus Areas -->
-        <section class="section section-focus">
-            <div class="container">
-                <h2 class="section-title">Focus Areas</h2>
-                <p class="section-intro">
-                    While we're thesis-driven rather than sector-constrained, we're particularly interested in:
-                </p>
-                <div class="focus-grid">
-                    <div class="focus-item">
-                        <h4>Emerging Technologies</h4>
-                        <p>Novel platforms and protocols that enable new forms of value creation and exchange.</p>
-                    </div>
-                    <div class="focus-item">
-                        <h4>Infrastructure</h4>
-                        <p>Foundational tools and systems that power the next generation of applications.</p>
-                    </div>
-                    <div class="focus-item">
-                        <h4>Tools for Investors</h4>
-                        <p>Analytics, data, and software that improve decision-making in financial markets.</p>
-                    </div>
-                    <div class="focus-item">
-                        <h4>Market Innovation</h4>
-                        <p>New mechanisms for coordination, liquidity, and price discovery.</p>
-                    </div>
-                    <div class="focus-item">
-                        <h4>Developer Tools</h4>
-                        <p>Platforms and services that enable builders to create more efficiently.</p>
-                    </div>
-                    <div class="focus-item">
-                        <h4>Data & Analytics</h4>
-                        <p>Solutions that turn information into actionable insights and competitive advantages.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final CTA -->
-        <section class="section section-cta">
-            <div class="container">
-                <div class="cta-content">
-                    <h2 class="cta-title">Looking for a different kind of capital partner?</h2>
-                    <p class="cta-description">
-                        If you're building something non-obvious with asymmetric upside, we'd love to hear from you.
+                <h2 class="section-label">Approach</h2>
+                <div class="approach-home-content">
+                    <p class="approach-statement">
+                        We scout talent before traction, move with conviction, and support founders with more than just capital. Design, product, go-to-market—we're earliest believers who help shape the company from day one.
                     </p>
-                    <a href="contact.html" class="btn btn-primary">Share Your Deck</a>
                 </div>
             </div>
         </section>
