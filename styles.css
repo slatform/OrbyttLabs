@@ -103,6 +103,9 @@ ul {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 1.25rem;
     font-weight: 700;
     color: #1a1a1a;
@@ -111,6 +114,16 @@ ul {
 
 .logo:hover {
     opacity: 0.7;
+}
+
+.logo-image {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+.logo-text {
+    display: inline-block;
 }
 
 .nav {
@@ -1771,6 +1784,16 @@ body {
    =================================== */
 
 @media (max-width: 767px) {
+    /* Logo adjustments for mobile */
+    .logo-image {
+        height: 28px;
+    }
+    
+    .logo {
+        gap: 10px;
+        font-size: 1.125rem;
+    }
+
     /* Show mobile menu toggle */
     .menu-toggle {
         display: block;
