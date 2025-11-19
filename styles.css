@@ -121,16 +121,19 @@ ul {
 .nav-link {
     font-size: 0.95rem;
     color: #666;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
     position: relative;
+    padding: 4px 0;
 }
 
 .nav-link:hover {
     color: #1a1a1a;
+    transform: translateY(-1px);
 }
 
 .nav-link.active {
     color: #1a1a1a;
+    font-weight: 500;
 }
 
 .nav-link.active::after {
@@ -313,29 +316,41 @@ ul {
     font-size: 1rem;
     font-weight: 500;
     border-radius: 6px;
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     border: none;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
     background-color: #0066cc;
     color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0);
 }
 
 .btn-primary:hover {
     background-color: #0052a3;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 102, 204, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
 }
 
 .btn-secondary {
     background-color: #f5f5f5;
     color: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0);
 }
 
 .btn-secondary:hover {
     background-color: #e5e5e5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .btn-full {
@@ -541,6 +556,193 @@ ul {
     .criteria-simple-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 40px;
+    }
+}
+
+/* Enhanced portfolio filters */
+.section-portfolio-filters {
+    padding: 40px 0 0;
+    border-top: none;
+}
+
+.portfolio-filters {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    font-size: 0.875rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: #1a1a1a;
+    color: #1a1a1a;
+}
+
+.filter-btn.active {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+}
+
+/* Enhanced portfolio list */
+.section-portfolio-enhanced {
+    padding: 60px 0 100px;
+    border-top: none;
+}
+
+.portfolio-enhanced-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.portfolio-enhanced-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.portfolio-enhanced-item:hover {
+    background-color: #fafafa;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 8px;
+}
+
+.portfolio-enhanced-item.hidden {
+    display: none;
+}
+
+.portfolio-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.portfolio-logo-placeholder {
+    width: 56px;
+    height: 56px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #666;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.portfolio-enhanced-item:hover .portfolio-logo-placeholder {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+
+.portfolio-details {
+    flex: 1;
+}
+
+.portfolio-enhanced-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #1a1a1a;
+}
+
+.portfolio-description-short {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0;
+}
+
+.portfolio-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.portfolio-enhanced-category {
+    font-size: 0.875rem;
+    color: #666;
+    min-width: 140px;
+    text-align: right;
+}
+
+.portfolio-year {
+    font-size: 0.875rem;
+    color: #999;
+    min-width: 40px;
+}
+
+.portfolio-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.portfolio-status.active {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.portfolio-status.series-a {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.portfolio-status.holding {
+    background-color: #fff3e0;
+    color: #e65100;
+}
+
+@media (max-width: 768px) {
+    .portfolio-enhanced-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px 0;
+    }
+    
+    .portfolio-info {
+        width: 100%;
+    }
+    
+    .portfolio-meta {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    
+    .portfolio-enhanced-category {
+        min-width: auto;
+        text-align: left;
+    }
+    
+    .portfolio-year {
+        min-width: auto;
     }
 }
 
@@ -1187,6 +1389,14 @@ ul {
     border-top: 1px solid #e5e5e5;
 }
 
+.contact-email-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .contact-email-minimal {
     font-size: 1.5rem;
     font-weight: 400;
@@ -1197,6 +1407,60 @@ ul {
 
 .contact-email-minimal:hover {
     opacity: 0.6;
+}
+
+.copy-email-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-email-btn:hover {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.copy-email-btn:active {
+    transform: translateY(0);
+}
+
+.copy-email-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.copy-notification {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.copy-notification.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* ===================================

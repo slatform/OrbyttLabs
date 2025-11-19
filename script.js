@@ -1,4 +1,72 @@
 // ===================================
+// COPY EMAIL TO CLIPBOARD
+// ===================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const copyBtn = document.querySelector('.copy-email-btn');
+    const notification = document.getElementById('copyNotification');
+    
+    if (copyBtn && notification) {
+        copyBtn.addEventListener('click', function() {
+            const email = this.getAttribute('data-email');
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(email).then(function() {
+                // Show notification
+                notification.classList.add('show');
+                
+                // Change button text
+                const copyText = copyBtn.querySelector('.copy-text');
+                const originalText = copyText.textContent;
+                copyText.textContent = 'Copied!';
+                
+                // Reset after 2 seconds
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                    copyText.textContent = originalText;
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy:', err);
+            });
+        });
+    }
+});
+
+// ===================================
+// PORTFOLIO FILTERING
+// ===================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-enhanced-item');
+    
+    if (filterBtns.length > 0 && portfolioItems.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter portfolio items
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        item.classList.remove('hidden');
+                        // Fade in animation
+                        item.style.animation = 'fadeIn 0.4s ease';
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
+});
+
+// ===================================
 // MOBILE MENU TOGGLE
 // ===================================
 
