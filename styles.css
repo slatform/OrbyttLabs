@@ -2124,6 +2124,26 @@ body::before {
     .contact-email {
         font-size: 1.25rem;
     }
+    
+    /* Team cards on mobile */
+    .team-card {
+        padding: 32px 24px;
+    }
+    
+    .team-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+        margin-bottom: 20px;
+    }
+    
+    .team-name {
+        font-size: 1rem;
+    }
+    
+    .team-bio {
+        font-size: 0.9rem;
+    }
 
     /* Footer */
     .footer {
