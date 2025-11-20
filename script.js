@@ -1,4 +1,59 @@
 // ===================================
+// STAGGERED TEXT REVEAL ON SCROLL
+// ===================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Intersection Observer for reveal animations
+    const observerOptions = {
+        threshold: 0.3, // Element must be 30% visible (was 0.2)
+        rootMargin: '0px 0px -150px 0px' // Trigger 150px before bottom of viewport (was -100px)
+    };
+    
+    const revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                // Optionally unobserve after revealing
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all elements with reveal-text class
+    const revealElements = document.querySelectorAll('.reveal-text');
+    revealElements.forEach(element => {
+        revealObserver.observe(element);
+    });
+    
+    // Split text animation for hero title
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+        const text = heroTitle.textContent;
+        const words = text.split(' ');
+        heroTitle.innerHTML = '';
+        
+        words.forEach((word, index) => {
+            const span = document.createElement('span');
+            span.classList.add('split-text');
+            span.textContent = word;
+            span.style.animationDelay = `${index * 0.1}s`;
+            heroTitle.appendChild(span);
+            
+            // Add space after each word except the last
+            if (index < words.length - 1) {
+                heroTitle.appendChild(document.createTextNode(' '));
+            }
+        });
+        
+        // Trigger animation
+        setTimeout(() => {
+            const spans = heroTitle.querySelectorAll('.split-text');
+            spans.forEach(span => span.classList.add('animate'));
+        }, 300);
+    }
+});
+
+// ===================================
 // TYPEWRITER EFFECT
 // ===================================
 
@@ -202,28 +257,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===================================
-// CONTACT FORM HANDLING (DISPLAY ONLY)
-// ===================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // This form is for display purposes only
-            // In production, you would send this data to a backend or service
-            
-            alert('This form is for display purposes. Please send your message to contact@orbyttlabs.com directly.');
-            
-            // Optional: Reset form after submission
-            // contactForm.reset();
-        });
-    }
-});
-
-// ===================================
 // ACTIVE NAV LINK HIGHLIGHTING
 // ===================================
 
@@ -296,44 +329,3 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(item);
     });
 });
-
-// ===================================
-// FADE-IN ANIMATION ON SCROLL (OPTIONAL)
-// ===================================
-
-// Uncomment this section if you want elements to fade in as you scroll
-
-/*
-document.addEventListener('DOMContentLoaded', function() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    });
-});
-
-// Add this CSS class for fade-in effect
-// .fade-in {
-//     opacity: 1 !important;
-//     transform: translateY(0) !important;
-// }
-*/
-
-// ===================================
