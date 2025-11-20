@@ -295,6 +295,30 @@ ul {
     font-weight: 400;
     max-width: 800px;
     margin: 0 auto;
+    min-height: 2.625rem; /* Prevent layout shift during animation */
+}
+
+/* Typewriter animation */
+.hero-statement.typewriter {
+    display: inline-block;
+    border-right: 3px solid #1a1a1a;
+    padding-right: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.hero-statement.typewriter.finished {
+    border-right: none;
+    animation: blink 0.7s step-end 3;
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-right: 3px solid #1a1a1a;
+    }
+    51%, 100% {
+        border-right: 3px solid transparent;
+    }
 }
 
 /* Legacy hero styles for other pages */
@@ -1847,6 +1871,10 @@ body {
     .hero-statement {
         font-size: 1.125rem;
     }
+    
+    .hero-statement.typewriter {
+        border-right-width: 2px;
+    }
 
     .section-statement,
     .approach-statement {
@@ -1944,4 +1972,28 @@ body {
     .footer {
         padding: 40px 0 30px;
     }
+}
+/* Footer Links */
+.footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.footer-link {
+    color: #666;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-link:hover {
+    color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.footer-link svg {
+    display: block;
 }

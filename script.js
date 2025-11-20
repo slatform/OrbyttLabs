@@ -1,4 +1,43 @@
 // ===================================
+// TYPEWRITER EFFECT
+// ===================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const heroStatement = document.querySelector('.hero-statement');
+    
+    if (heroStatement) {
+        const originalText = heroStatement.textContent;
+        const typingSpeed = 50; // milliseconds per character
+        const blinkDuration = 2100; // 3 blinks at 0.7s each
+        
+        // Clear the text and add typewriter class
+        heroStatement.textContent = '';
+        heroStatement.classList.add('typewriter');
+        
+        let charIndex = 0;
+        
+        function typeCharacter() {
+            if (charIndex < originalText.length) {
+                heroStatement.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeCharacter, typingSpeed);
+            } else {
+                // Typing complete - add finished class for cursor blinking
+                heroStatement.classList.add('finished');
+                
+                // Remove cursor after blinking is done
+                setTimeout(() => {
+                    heroStatement.classList.remove('typewriter', 'finished');
+                }, blinkDuration);
+            }
+        }
+        
+        // Start typing after a brief delay
+        setTimeout(typeCharacter, 500);
+    }
+});
+
+// ===================================
 // COPY EMAIL TO CLIPBOARD
 // ===================================
 

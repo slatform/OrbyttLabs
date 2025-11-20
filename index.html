@@ -37,15 +37,15 @@
                     <!-- Animated SVG Visualization -->
                     <div class="hero-visual">
                         <svg viewBox="0 0 600 600" class="orbit-animation">
-                            <!-- Define gradient for rings -->
+                            <!-- Define gradients and filters -->
                             <defs>
-                                <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#0066cc;stop-opacity:0.8" />
-                                    <stop offset="100%" style="stop-color:#00a8cc;stop-opacity:0.4" />
+                                <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f5f5f5;stop-opacity:1" />
                                 </linearGradient>
                                 
                                 <filter id="glow">
-                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
                                     <feMerge>
                                         <feMergeNode in="coloredBlur"/>
                                         <feMergeNode in="SourceGraphic"/>
@@ -53,34 +53,29 @@
                                 </filter>
                             </defs>
                             
-                            <!-- Outer rings -->
-                            <circle cx="300" cy="300" r="280" fill="none" stroke="#e5e5e5" stroke-width="0.5" opacity="0.2"/>
-                            <circle cx="300" cy="300" r="260" fill="none" stroke="#e5e5e5" stroke-width="0.5" opacity="0.25"/>
+                            <!-- Outermost ring - lightest -->
+                            <circle cx="300" cy="300" r="270" fill="none" stroke="#f0f0f0" stroke-width="40" opacity="0.4"/>
                             
-                            <!-- Main outer ring -->
-                            <circle cx="300" cy="300" r="240" fill="none" stroke="#d0d0d0" stroke-width="1" opacity="0.4" class="rotate-slower"/>
+                            <!-- Second ring -->
+                            <circle cx="300" cy="300" r="220" fill="none" stroke="#e8e8e8" stroke-width="35" opacity="0.5" class="rotate-slower"/>
                             
-                            <!-- Mid-outer ring -->
-                            <circle cx="300" cy="300" r="210" fill="none" stroke="#1a1a1a" stroke-width="1.5" opacity="0.3" class="rotate-slow"/>
+                            <!-- Third ring - medium gray -->
+                            <circle cx="300" cy="300" r="175" fill="none" stroke="#d8d8d8" stroke-width="30" opacity="0.6" class="rotate-slow"/>
                             
-                            <!-- Accent ring with gradient -->
-                            <circle cx="300" cy="300" r="180" fill="none" stroke="url(#blueGradient)" stroke-width="2" opacity="0.7" class="rotate-medium"/>
+                            <!-- Fourth ring -->
+                            <circle cx="300" cy="300" r="135" fill="none" stroke="#c8c8c8" stroke-width="25" opacity="0.7" class="rotate-medium"/>
                             
-                            <!-- Inner ring -->
-                            <circle cx="300" cy="300" r="150" fill="none" stroke="#1a1a1a" stroke-width="2" class="rotate-reverse"/>
+                            <!-- Inner ring - darkest -->
+                            <circle cx="300" cy="300" r="100" fill="none" stroke="#b8b8b8" stroke-width="20" opacity="0.8" class="rotate-reverse"/>
                             
-                            <!-- Thin accent ring -->
-                            <circle cx="300" cy="300" r="120" fill="none" stroke="#0066cc" stroke-width="1" opacity="0.5" class="rotate-fast"/>
-                            
-                            <!-- Center circles -->
-                            <circle cx="300" cy="300" r="90" fill="none" stroke="#1a1a1a" stroke-width="1.5" opacity="0.5"/>
-                            <circle cx="300" cy="300" r="70" fill="none" stroke="#666" stroke-width="1" opacity="0.3"/>
+                            <!-- Center white circle -->
+                            <circle cx="300" cy="300" r="70" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
                             
                             <!-- Small center dot -->
-                            <circle cx="300" cy="300" r="8" fill="#0066cc" opacity="0.8" filter="url(#glow)"/>
+                            <circle cx="300" cy="300" r="6" fill="#1a1a1a" opacity="0.6"/>
                             
                             <!-- Orbital dots with glow -->
-                            <circle cx="300" cy="20" r="7" fill="#0066cc" opacity="0.9" filter="url(#glow)" class="orbit-dot-1">
+                            <circle cx="300" cy="30" r="5" fill="#1a1a1a" opacity="0.8" filter="url(#glow)" class="orbit-dot-1">
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
@@ -91,7 +86,7 @@
                                     repeatCount="indefinite"/>
                             </circle>
                             
-                            <circle cx="520" cy="300" r="6" fill="#1a1a1a" opacity="0.8" filter="url(#glow)" class="orbit-dot-2">
+                            <circle cx="510" cy="300" r="5" fill="#1a1a1a" opacity="0.7" filter="url(#glow)" class="orbit-dot-2">
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
@@ -102,7 +97,7 @@
                                     repeatCount="indefinite"/>
                             </circle>
                             
-                            <circle cx="300" cy="480" r="5" fill="#00a8cc" opacity="0.7" filter="url(#glow)" class="orbit-dot-3">
+                            <circle cx="300" cy="470" r="4" fill="#1a1a1a" opacity="0.6" filter="url(#glow)" class="orbit-dot-3">
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
@@ -114,7 +109,7 @@
                             </circle>
                             
                             <!-- Additional small orbital dots for depth -->
-                            <circle cx="380" cy="150" r="3" fill="#666" opacity="0.6" class="orbit-dot-4">
+                            <circle cx="380" cy="160" r="3" fill="#1a1a1a" opacity="0.5" class="orbit-dot-4">
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
@@ -125,7 +120,7 @@
                                     repeatCount="indefinite"/>
                             </circle>
                             
-                            <circle cx="150" cy="380" r="3" fill="#0066cc" opacity="0.5" class="orbit-dot-5">
+                            <circle cx="150" cy="380" r="3" fill="#1a1a1a" opacity="0.5" class="orbit-dot-5">
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
@@ -141,19 +136,7 @@
                     <h1 class="hero-title">Orbytt Labs</h1>
                     
                     <p class="hero-statement">
-                        We invest in frontier founders and overlooked opportunities before institutional capital arrives.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- What We Do -->
-        <section class="section section-what">
-            <div class="container">
-                <div class="what-content">
-                    <h2 class="section-label">What We Do</h2>
-                    <p class="section-statement">
-                        We combine the discipline of private equity, the speed of venture capital, and the intuition of talent scouting. We operate where traditional firms can't—scouting in overlooked communities, emerging ecosystems, and cultural pockets where breakthrough founders are building quietly.
+                        Research-driven early investing.
                     </p>
                 </div>
             </div>
@@ -193,17 +176,35 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-copyright">&copy; 2024 Orbytt Labs</p>
-                <p class="footer-disclaimer">
-                    Orbytt Labs is a private investment firm. This site is for informational purposes only and does not constitute investment advice.
-                </p>
+   <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p class="footer-copyright">&copy; 2024 Orbytt Labs</p>
+            <div class="footer-links">
+                <a href="https://twitter.com/orbyttxyz" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="mailto:contact@orbytt.xyz" class="footer-link" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+                <a href="contact.html" class="footer-link" aria-label="Contact">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </a>
             </div>
+            <p class="footer-disclaimer">
+                Orbytt Labs is a private investment firm. This site is for informational purposes only and does not constitute investment advice.
+            </p>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script src="script.js"></script>
 </body>
